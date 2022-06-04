@@ -9,5 +9,5 @@ st.button("Efetue Login")
 if st.button("Efetue Login"):
     if (name in lista_name) and( senha in lista_senha):
         st.text("Seja bem vindo!")
-    else:
+    elif:
         st.text("Falha no login")
