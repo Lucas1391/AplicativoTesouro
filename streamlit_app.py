@@ -5,9 +5,9 @@ lista_senha = ["lucasomatoria7@gmail.com"]
 st.title("Login de inicialização")
 name = st.text_input("Digite seu login : ")
 senha = st.text_input("Digite sua senha : ")
-botao = st.button("Efetue Login")
-if botao:
-    if (name in lista_name)and(senha in lista_senha):
+st.button("Efetue Login")
+if st.button("Efetue Login"):
+    if (name in lista_name) and( senha in lista_senha):
         st.text("Seja bem vindo!")
     else:
         st.text("Falha no login")
