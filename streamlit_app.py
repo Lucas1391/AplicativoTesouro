@@ -16,8 +16,8 @@ def page2():
 
 page_names_to_funcs = {
     "": "",
-    "Main Page": main_page(),
-    "Home": page2(),
+    "Main Page": main_page,
+    "Home": page2,
 
 }
 lista_name = ["Lucas Campos"]
