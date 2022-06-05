@@ -25,7 +25,7 @@ lista_senha = ["lucasomatoria7@gmail.com"]
 
 
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
-if selected_page:
-    page_names_to_funcs[selected_page](0)
+if selected_page==Home:
+    page_names_to_funcs[selected_page]
 
         
