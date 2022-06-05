@@ -15,8 +15,8 @@ def page2():
     st.sidebar.markdown("# Page 2 ❄️")
 
 page_names_to_funcs = {
-    "Main Page": Login,
-    "Page 2": Home,
+    "Main Page": main_page,
+    "Home": page2(),
 
 }
 lista_name = ["Lucas Campos"]
