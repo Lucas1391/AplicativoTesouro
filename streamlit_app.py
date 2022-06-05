@@ -7,8 +7,8 @@ def main_page():
     if senha:
         if (usuario  not in lista_name)and(senha not in lista_senha):
             st.text("Falha no Login!")
-    else:
-        st.text("Seja bem vindo!")
+        else:
+            st.text("Seja bem vindo!")
 
 def page2():
     st.markdown("# Page 2 ❄️")
