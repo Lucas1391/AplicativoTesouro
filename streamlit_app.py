@@ -6,7 +6,7 @@ def main_page():
     senha = st.text_input("Insira sua senha : ",type='password')
     if senha:
         if (usuario  not in lista_name)and(senha not in lista_senha):
-        st.text("Falha no Login!")
+            st.text("Falha no Login!")
     else:
         st.text("Seja bem vindo!")
 
