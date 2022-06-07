@@ -53,6 +53,7 @@ if estrategia==lista[1]:
     dicionario = IFR2_ATIVOS(ativos)
     operacoes = Operacoes(dicionario)
     operacoes = pd.DataFrame(operacoes.values())
+    operacoes.index = ativos
     st.dataframe(operacoes)                      
     
 
