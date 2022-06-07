@@ -57,7 +57,7 @@ if estrategia==lista[1]:
     for i in range(0,len(operacoes)):
         operacoes['ativo'][i] = operacoes['ativo'][i].replace(".SA","")
     operacoes['Preço'] = operacoes['Preço'].map('${:,.2f}'.format)
-                
-    st.dataframe(operacoes)                  
+               
+    st.dataframe(operacoes, width=100, height=200)                  
     
 
