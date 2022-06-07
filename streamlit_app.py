@@ -52,7 +52,7 @@ def IFR2_ATIVOS(ativos):
 st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
 ativos = ["WEGE3","MGLU3","AZUL4"]
-estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista]
+estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia:                  
     dicionario = IFR2_ATIVOS(ativos)
     resultado = Main(dicionario)
