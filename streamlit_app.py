@@ -8,10 +8,7 @@ import pandas_ta as ta
 import streamlit as st
 
 
-def Main(dicionario):
-    #dados do telegram
-    #EXCLUINDO ATIVOS SEM OPERAÇÕES
-    def Operacoes(dicionario):
+def Operacoes(dicionario):
         resultado_ifr2 = {}
         for indice in dicionario:
             if (dicionario[indice]['Sinal'] == 'compra') or (dicionario[indice]['Sinal'] == 'venda'):
@@ -54,7 +51,7 @@ lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia:                  
     dicionario = IFR2_ATIVOS(ativos)
-    resultado = Main(dicionario)
+    resultado = Operacoes(dicionario)
     resultado = pd.DataFrame(resultado.values())
     st.dataframe(resultado)                      
     
