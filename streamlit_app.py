@@ -38,7 +38,7 @@ def IFR2(ativo):
                         'Sinal':operacao
                         })
         return resultado_ifr2
-ativos = ["WEGE3,SA","MGLU3.SA","AZUL4.SA"]
+ativos = ["WEGE3.SA","MGLU3.SA","AZUL4.SA"]
 def IFR2_ATIVOS(ativos):
     #Gerando Dicionário para todos os ativos
     resultado_ifr2 = {}
