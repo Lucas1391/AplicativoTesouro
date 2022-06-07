@@ -50,8 +50,11 @@ st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia:                  
-    dicionario = IFR2(ativos[0])
-    dicionario = pd.DataFrame(dicionario.values())
-    st.dataframe(dicionario)                      
+    df=yf.download(ativo,period='5d')
+    #Cálculo do IFR
+    df['IFR2'] = ta.rsi(df['Close'],2)
+    #Calculando máxima dos dois ultimos dias
+    df['highest_2'] = df['High'].rolling(2).max()
+    st.dataframe(df)                      
     
 
