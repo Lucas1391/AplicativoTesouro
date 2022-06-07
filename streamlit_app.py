@@ -4,7 +4,7 @@ import yfinance as yf
 import pandas as pd
 #Instalando Numpy
 import numpy as np
-import pandas-ta as ta
+import pandas_ta as ta
 import streamlit as st
 
 
