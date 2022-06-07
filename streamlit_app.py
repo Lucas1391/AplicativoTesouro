@@ -51,9 +51,10 @@ lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia==lista[1]:
     dicionario = IFR2_ATIVOS(ativos)
-    operacoes = Operacoes(dicionario)
+    Operacoes = Operacoes(dicionario)
+    operacoes = pd.DataFrame()
+    operacoes['ativos'] = ativos
     operacoes = pd.DataFrame(operacoes.values())
-    operacoes.index = ativos
     st.dataframe(operacoes)                      
     
 
