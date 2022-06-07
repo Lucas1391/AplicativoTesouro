@@ -4,8 +4,6 @@ import yfinance as yf
 import pandas as pd
 #Instalando Numpy
 import numpy as np
-#Biblioteca Telegram
-import telegram as tl
 import pandas_ta as ta
 
 
