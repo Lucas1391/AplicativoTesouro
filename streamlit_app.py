@@ -34,8 +34,9 @@ def IFR2(ativo):
         else:
                 operacao = operacao
         #ALOCANDO RESULTADO EM UM DICIONÁRIO
-        resultado_ifr2 = ({'Preço':fechamento_atual,
-                        'Sinal':operacao
+        resultado_ifr2 = ({     'ativo':ativo,
+                                'Preço':fechamento_atual,
+                                'Sinal':operacao
                         })
         return resultado_ifr2
 ativos = ["WEGE3.SA","MGLU3.SA","AZUL4.SA"]
