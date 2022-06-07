@@ -54,7 +54,7 @@ if estrategia==lista[1]:
     Operacoes = Operacoes(dicionario)
     operacoes = pd.DataFrame()
     operacoes['ativos'] = ativos
-    operacoes = pd.DataFrame(operacoes.values())
+    operacoes = pd.DataFrame(Operacoes.values())
     st.dataframe(operacoes)                      
     
 
