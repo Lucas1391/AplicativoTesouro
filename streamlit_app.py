@@ -5,6 +5,7 @@ import pandas as pd
 #Instalando Numpy
 import numpy as np
 import pandas_ta as ta
+import streamlit as st
 
 
 def Main(dicionario):
