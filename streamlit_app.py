@@ -1,31 +1,62 @@
-import streamlit as st
+#Biblioteca para Carregar dados do yahoo Finance
+import yfinance as yf
+#Instalando Pandas
+import pandas as pd
+#Instalando Numpy
+import numpy as np
+#Biblioteca Telegram
+import telegram as tl
+import pandas_ta as ta
 
-def main_page():
-    st.markdown("# Main page 🎈")
-    usuario = st.text_input("Insira seu nome de usuário : ")
-    senha = st.text_input("Insira sua senha : ",type='password')
-    if senha:
-        if (usuario  not in lista_name)and(senha not in lista_senha):
-            st.text("Falha no Login!")
+
+def Main(dicionario):
+    #dados do telegram
+    #EXCLUINDO ATIVOS SEM OPERAÇÕES
+    def Operacoes(dicionario):
+        resultado_ifr2 = {}
+        for indice in dicionario:
+            if (dicionario[indice]['Sinal'] == 'compra') or (dicionario[indice]['Sinal'] == 'venda'):
+                resultado_ifr2.update({indice:dicionario[indice]})
+        return resultado_ifr2
+
+def IFR2(ativo):
+        df=yf.download(ativo,period='5d')
+        #Cálculo do IFR
+        df['IFR2'] = ta.rsi(df['Close'],2)
+        #Calculando máxima dos dois ultimos dias
+        df['highest_2'] = df['High'].rolling(2).max()
+        highest_2 = df['highest_2'].iloc[3]
+        fechamento_atual  = df['Close'].iloc[-1]
+        ifr_2 = df['IFR2'].iloc[-1]
+        maxima = df['High'].iloc[-1]
+        #CALCULANDO CONDIÇÕES DE COMPRA,VENDA OU NEUTRALIDADE
+        operacao = 'nenhuma'
+        if ifr_2 <  25.00:
+                operacao = 'compra'
+        elif highest_2 < maxima:
+                operacao = 'venda'
         else:
-            st.text("Seja bem vindo!")
+                operacao = operacao
+        #ALOCANDO RESULTADO EM UM DICIONÁRIO
+        resultado_ifr2 = ({'Preço':fechamento_atual,
+                        'Sinal':operacao
+                        })
+        return resultado_ifr2
+def IFR2_ATIVOS(ativos):
+    #Gerando Dicionário para todos os ativos
+    resultado_ifr2 = {}
+    for ativo in ativos:
+        resultado_ifr2.update({ativo:IFR2(ativo)})
+    return resultado_ifr2
+#==============================MENSAGEM TELEGRAM=====================================================
+st.title("APLICATIVO DE SINAIS")
+lista= ["","IFR2","9.1","TUTLE"]
+ativos = ["WEGE3","MGLU3","AZUL4"]
+estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista]
+if estrategia:                  
+    dicionario = IFR2_ATIVOS(ativos)
+    resultado = Main(dicionario)
+    resultado = pd.DataFrame(resultado.values())
+    st.dataframe(resultado)                      
+    
 
-def page2():
-    st.markdown("# Page 2 ❄️")
-    st.sidebar.markdown("# Page 2 ❄️")
-
-page_names_to_funcs = {
-    "": "",
-    "Main Page": main_page,
-    "Home": page2,
-
-}
-lista_name = ["Lucas Campos"]
-lista_senha = ["lucasomatoria7@gmail.com"]
-
-
-selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
-if selected_page==Home:
-    page_names_to_funcs[selected_page]
-
-        
