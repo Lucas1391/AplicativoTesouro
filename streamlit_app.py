@@ -49,7 +49,7 @@ def IFR2_ATIVOS(ativos):
 st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
-if estrategia==lista[0]:
+if estrategia==lista[1]:
     df = yf.download(ativos[0],period='5d')
     st.dataframe(df)                      
     
