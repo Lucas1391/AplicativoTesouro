@@ -49,8 +49,8 @@ def IFR2_ATIVOS(ativos):
 st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
-if estrategia:                  
-    df=yf.download(ativo,period='5d')
+if estrategia:  
+    df = yf.download(ativos[0],period='5d')
     #Cálculo do IFR
     df['IFR2'] = ta.rsi(df['Close'],2)
     #Calculando máxima dos dois ultimos dias
