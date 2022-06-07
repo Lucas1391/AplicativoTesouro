@@ -54,7 +54,10 @@ if estrategia==lista[1]:
     dicionario = IFR2_ATIVOS(ativos)
     operacoes = Operacoes(dicionario)
     operacoes = pd.DataFrame(operacoes.values())
-    
+    for i in range(0,len(operacoes)):
+        operacoes['ativo'][i] = operacoes['ativo'].replace(".SA","")
+        
+                
     st.dataframe(operacoes)                      
     
 
