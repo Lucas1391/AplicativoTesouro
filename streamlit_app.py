@@ -41,6 +41,7 @@ def IFR2(ativo):
                         'Sinal':operacao
                         })
         return resultado_ifr2
+ativos = ["WEGE3,SA","MGLU3.SA","AZUL4.SA"]
 def IFR2_ATIVOS(ativos):
     #Gerando Dicionário para todos os ativos
     resultado_ifr2 = {}
@@ -50,7 +51,6 @@ def IFR2_ATIVOS(ativos):
 #==============================MENSAGEM TELEGRAM=====================================================
 st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
-ativos = ["WEGE3","MGLU3","AZUL4"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia:                  
     dicionario = IFR2_ATIVOS(ativos)
