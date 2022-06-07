@@ -50,7 +50,9 @@ st.title("APLICATIVO DE SINAIS")
 lista= ["","IFR2","9.1","TUTLE"]
 estrategia = st.selectbox("SELECIONE O SETUP DESEJADO!",lista)
 if estrategia==lista[1]:
-    df = yf.download(ativos[0],period='5d')
-    st.dataframe(df)                      
+    dicionario = IFR2_ATIVOS(ativos)
+    operacoes = Operacoes(dicionario)
+    operacoes = pd.DataFrame(operacoes.values())
+    st.dataframe(operacoes)                      
     
 
